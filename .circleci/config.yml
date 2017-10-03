@@ -17,12 +17,7 @@ jobs:
           command: 'wget https://momoperes.ca/maven/abyss/javaws.jar'
 
       - run:
-          name: Install javaws
-          working_directory: '.'
-          command: 'mvn install:install-file -Dfile=javaws.jar -DgroupId=javax.jnlp -DartifactId=jnlp-api -Dversion=5.0 -Dpackaging=jar'
-
-      - run:
-          name: Copy it
+          name: Copy javaws
           working_directory: '.'
           command: 'chmod 755 javaws.jar && sudo cp javaws.jar /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/javaws.jar'
 
@@ -30,3 +25,9 @@ jobs:
           name: Build abyss
           working_directory: './Code/abyss/'
           command: 'mvn clean package'
+
+      - store_artifacts:
+          path: './Code/abyss/target/abyss*.jar'
+      
+      - store_artifacts:
+          path: './Code/abyss/target/natives'
