@@ -24,7 +24,7 @@ jobs:
       - run:
           name: Copy it
           working_directory: '.'
-          command: 'chmod 755 javaws.jar && cp javaws.jar /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/javaws.jar'
+          command: 'chmod 755 javaws.jar && sudo cp javaws.jar /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/javaws.jar'
 
       - run:
           name: Build abyss
