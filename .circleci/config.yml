@@ -22,6 +22,11 @@ jobs:
           command: 'mvn install:install-file -Dfile=javaws.jar -DgroupId=javax.jnlp -DartifactId=jnlp-api -Dversion=5.0 -Dpackaging=jar'
 
       - run:
+          name: Copy it
+          working_directory: '.'
+          command: 'chmod 755 javaws.jar && cp javaws.jar /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/javaws.jar'
+
+      - run:
           name: Build abyss
           working_directory: './Code/abyss/'
           command: 'mvn clean package'
