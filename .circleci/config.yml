@@ -12,6 +12,16 @@ jobs:
       - checkout
 
       - run:
+          name: Download javaws
+          working_directory: '.'
+          command: 'wget https://momoperes.ca/maven/abyss/javaws.jar'
+
+      - run:
+          name: Install javaws
+          working_directory: '.'
+          command: 'mvn install:install-file -Dfile=javaws.jar -DgroupId=javax.jnlp -DartifactId=jnlp-api -Dversion=5.0 -Dpackaging=jar'
+
+      - run:
           name: Build abyss
           working_directory: './Code/abyss/'
           command: 'mvn clean package'
