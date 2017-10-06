@@ -6,3 +6,5 @@ Our studio's first flagship game.
 Made by Vanier College students in the Computer Science and Mathematics program.
 
 More details comming soon.
+
+fuck you
