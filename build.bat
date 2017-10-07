@@ -1,7 +1,7 @@
 @echo off
 
 echo Building project...
-rm -r out
+rd /s /q out
 mkdir out
 mkdir out\natives
 cd Code\abyss
@@ -11,3 +11,7 @@ copy target\abyss*.jar ..\..\out\.
 copy target\natives\* ..\..\out\natives\.
 echo Copied
 cd ..\..\
+cd out
+rename abyss*.jar abyss.jar
+cd ..
+echo Done
